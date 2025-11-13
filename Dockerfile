@@ -18,6 +18,10 @@ COPY app /app/app
 RUN mkdir -p /app/storage
 
 EXPOSE 8000
+CMD ["sleep", "infinity"]
+
+
+
 
 # CMD ["sleep", "infinity"]
 # CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]

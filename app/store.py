@@ -1,4 +1,3 @@
-# app/store.py
 import uuid
 import json
 from typing import Optional, List, Dict, Any
@@ -24,9 +23,9 @@ def get_file_dir(file_id: str) -> Optional[str]:
         row = s.get(FileRow, file_id)
         return row.dir if row else None
 
-def create_question(file_id: str, text: str) -> str:
+def create_question(file_id: str, text: str, mode: str = "rag") -> str:
     with Session(_engine) as s:
-        q = QuestionRow(file_id=file_id, question=text)
+        q = QuestionRow(file_id=file_id, question=text, mode=mode)
         s.add(q)
         s.commit()
         s.refresh(q)
